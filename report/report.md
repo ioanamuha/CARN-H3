@@ -91,3 +91,20 @@ I conducted a targeted experiment to compare the performance of training from sc
 | **No Pretraining** | ResNeSt26d | 32x32 | 100    | **66.02%**    |
 | **Pretraining** | ResNet50 | 224x224 | 10     | **79.76%**    |
 
+## 6. Self-Grading Estimation
+
+Based on the requirements and my implementation, I estimate the following score:
+
+| Category | Requirement | Points | Status / Notes                                               |
+| :--- | :--- |:-------|:-------------------------------------------------------------|
+| **Base Pipeline** | Device Agnostic, Configurable | 8      | **8/8** - Fully implemented.                                 |
+| | Datasets (MNIST, CIFAR, Pets) |        | Implemented all 4.                                           |
+| | Models (ResNet, ResNeSt, MLP) |        | Implemented all (incl. custom MLP).                          |
+| | Optimizers (Muon, SAM, etc.) |        | Implemented custom Muon/SAM classes.                         |
+| | Schedulers & Batch Sched |        | Implemented StepLR, Plateau & Batch Sched.                   |
+| | Logging & Early Stopping |        | WandB integration & functional Early Stop.                   |
+| **Sweep** | Hyperparam Sweep (WandB) | 0      | I have not had time to do this.                              |
+| **Efficiency** | Efficient Pipeline | 3      | **3/3** - Uses `num_workers`, `pin_memory`, AMP code exists. |
+| **Performance** | No Pretraining (>79-85%) | 0      | Did not achieve at least 79% accuracy.                       |
+| | Pretraining (>82-85%) | 0      | Did not achieve at least 82% accuracy.                       |
+| **Total** | | 11     | **[Total Score]**                                            |
