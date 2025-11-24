@@ -1,0 +1,30 @@
+dataset: cifar100
+data_root: ./data
+
+# resnet18, resnet50, resnest14d, resnest26d, mlp
+model_name: resnest26d
+pretrained: False
+num_classes: 100
+image_size: 32
+
+num_workers: 4
+
+batch_size: 128
+num_epochs: 100
+
+# adam, sgd, adamw, sam, muon
+optimizer: sam
+lr: 0.001
+weight_decay: 0.01
+momentum: 0.9
+
+# steplr, reducelronplateau
+scheduler: reducelronplateau
+step_size: 10
+gamma: 0.1
+patience: 2
+factor: 0.1
+
+log_dir: ./runs/cifar100
+use_wandb: false
+use_amp: False
